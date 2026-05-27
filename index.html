@@ -112,12 +112,12 @@
 <body>
 
     <header>
-        <h1>Dialectics of Alignment: Harnessing Unsafe Knowledge for Dynamic Safety Routing [cite: 3]</h1>
+        <h1>Dialectics of Alignment: Harnessing Unsafe Knowledge for Dynamic Safety Routing</h1>
         <div class="authors">
-            Maryam Hashemzadeh, Jerry Huang, Minseon Kim, Marc-Alexandre Côté, Sarath Chandar [cite: 4]
+            Maryam Hashemzadeh, Jerry Huang, Minseon Kim, Marc-Alexandre Côté, Sarath Chandar
         </div>
         <div class="affiliations">
-            Mila-Quebec AI Institute, Université de Montréal, Chandar Research Lab, Microsoft Research, Polytechnique Montréal [cite: 5]
+            Mila-Quebec AI Institute, Université de Montréal, Chandar Research Lab, Microsoft Research, Polytechnique Montréal
         </div>
         <div class="links">
             <a href="#">Paper PDF</a>
@@ -127,25 +127,25 @@
 
     <section id="abstract">
         <h2>Abstract</h2>
-        <p>The prevailing paradigm in large language model (LLM) alignment operates via erasure, filtering unsafe data or training models to strictly refuse harmful prompts[cite: 6]. While effective at reducing immediate toxicity, this approach fundamentally constricts the model's epistemological scope, resulting in over-cautious systems that output uninformative blanket refusals to sensitive yet benign queries[cite: 7]. In this work, we challenge the orthodoxy that unsafe data must be discarded[cite: 8]. We propose a dialectical approach to alignment, positing that unsafe data encodes rich, domain-specific knowledge critical for nuanced, safe, and informative generation[cite: 9]. To operationalize this, we introduce SafeMoE, a Mixture-of-Experts (MoE) framework that isolates unsafe knowledge into domain-specific Low-Rank Adapters (LoRA experts) trained exclusively on harmful corpora[cite: 10]. To synthesize safety from these unsafe primitives, we train a lightweight gating network using a minimal, highly curated set of safe-informative responses[cite: 11]. During inference, this router dynamically orchestrates the unsafe experts, effectively steering the generation trajectory to harness their deep domain knowledge while strictly enforcing safety constraints[cite: 12]. Extensive empirical evaluations across stringent safety benchmarks demonstrate that SafeMoE is not only safer, achieving over a 20% relative improvement in safe response rate (more than a 15% absolute gain), but also produces more informative responses when safety and harmfulness are of paramount concern[cite: 13]. Furthermore, the routing mechanism exhibits strong zero-shot generalization to unseen domains and broader safety tasks without domain-specific supervision[cite: 14]. Our findings suggest a paradigm shift in alignment: true safety requires not the masking of unsafe knowledge, but its controlled integration[cite: 15].</p>
+        <p>The prevailing paradigm in large language model (LLM) alignment operates via erasure, filtering unsafe data or training models to strictly refuse harmful prompts. While effective at reducing immediate toxicity, this approach fundamentally constricts the model's epistemological scope, resulting in over-cautious systems that output uninformative blanket refusals to sensitive yet benign queries. In this work, we challenge the orthodoxy that unsafe data must be discarded. We propose a dialectical approach to alignment, positing that unsafe data encodes rich, domain-specific knowledge critical for nuanced, safe, and informative generation. To operationalize this, we introduce SafeMoE, a Mixture-of-Experts (MoE) framework that isolates unsafe knowledge into domain-specific Low-Rank Adapters (LoRA experts) trained exclusively on harmful corpora. To synthesize safety from these unsafe primitives, we train a lightweight gating network using a minimal, highly curated set of safe-informative responses. During inference, this router dynamically orchestrates the unsafe experts, effectively steering the generation trajectory to harness their deep domain knowledge while strictly enforcing safety constraints. Extensive empirical evaluations across stringent safety benchmarks demonstrate that SafeMoE is not only safer, achieving over a 20% relative improvement in safe response rate (more than a 15% absolute gain), but also produces more informative responses when safety and harmfulness are of paramount concern. Furthermore, the routing mechanism exhibits strong zero-shot generalization to unseen domains and broader safety tasks without domain-specific supervision. Our findings suggest a paradigm shift in alignment: true safety requires not the masking of unsafe knowledge, but its controlled integration.</p>
     </section>
 
     <section id="highlights">
         <h2>Quick Highlights</h2>
         <div class="highlight-box">
             <ul>
-                <li><strong>A Dialectical Approach:</strong> We propose a dialectical approach to alignment, positing that unsafe data encodes rich, domain-specific knowledge critical for nuanced, safe, and informative generation. [cite: 9]</li>
-                <li><strong>SafeMoE Framework:</strong> We introduce SafeMoE, a Mixture-of-Experts (MoE) framework that isolates unsafe knowledge into domain-specific Low-Rank Adapters (LoRA experts) trained exclusively on harmful corpora. [cite: 10]</li>
-                <li><strong>Efficiency:</strong> To safely use this knowledge, we introduce a routing mechanism trained on a highly curated, minimal dataset of safe responses (fewer than 800 samples across a limited set of topics which can potentially decreases to 100). [cite: 40]</li>
-                <li><strong>Strong Results:</strong> Extensive empirical evaluations across stringent safety benchmarks demonstrate that SafeMoE is not only safer, achieving over a 20% relative improvement in safe response rate (more than a 15% absolute gain), but also produces more informative responses when safety and harmfulness are of paramount concern. [cite: 13]</li>
+                <li><strong>A Dialectical Approach:</strong> We propose a dialectical approach to alignment, positing that unsafe data encodes rich, domain-specific knowledge critical for nuanced, safe, and informative generation.</li>
+                <li><strong>SafeMoE Framework:</strong> We introduce SafeMoE, a Mixture-of-Experts (MoE) framework that isolates unsafe knowledge into domain-specific Low-Rank Adapters (LoRA experts) trained exclusively on harmful corpora.</li>
+                <li><strong>Efficiency:</strong> To safely use this knowledge, we introduce a routing mechanism trained on a highly curated, minimal dataset of safe responses (fewer than 800 samples across a limited set of topics which can potentially decreases to 100).</li>
+                <li><strong>Strong Results:</strong> Extensive empirical evaluations across stringent safety benchmarks demonstrate that SafeMoE is not only safer, achieving over a 20% relative improvement in safe response rate (more than a 15% absolute gain), but also produces more informative responses when safety and harmfulness are of paramount concern.</li>
             </ul>
         </div>
     </section>
 
     <section id="problem">
         <h2>💡 The Problem: "Safety-by-Erasure"</h2>
-        <p>Recent efforts in LLM safety have focused on preventing the generation of harmful content[cite: 22]. Yet, the prevailing alignment paradigm often over-corrects, causing models to strictly refuse prompts that exhibit even tangential hints of suspicious intent[cite: 23]. Consequently, systems default to generic, blanket refusals, e.g., 'Sorry, I cannot help you.', particularly when navigating risky or complex queries[cite: 24].</p>
-        <p>While this "safety-by-erasure" approach reduces immediate toxicity, it severely degrades informativeness and user experience[cite: 25]. Moreover, in contexts involving psychological distress (e.g., inquiries related to self-harm), blanket refusals can inadvertently drive well-intentioned users toward adversarial circumvention or migration to less-restrictive, unmoderated platforms, thereby exacerbating the likelihood of harmful outcomes[cite: 26].</p>
+        <p>Recent efforts in LLM safety have focused on preventing the generation of harmful content. Yet, the prevailing alignment paradigm often over-corrects, causing models to strictly refuse prompts that exhibit even tangential hints of suspicious intent. Consequently, systems default to generic, blanket refusals, e.g., 'Sorry, I cannot help you.', particularly when navigating risky or complex queries.</p>
+        <p>While this "safety-by-erasure" approach reduces immediate toxicity, it severely degrades informativeness and user experience. Moreover, in contexts involving psychological distress (e.g., inquiries related to self-harm), blanket refusals can inadvertently drive well-intentioned users toward adversarial circumvention or migration to less-restrictive, unmoderated platforms, thereby exacerbating the likelihood of harmful outcomes.</p>
     </section>
 
     <section id="approach">
@@ -159,22 +159,22 @@
 
         <h3>Training Stages</h3>
         <ul>
-            <li><strong>Stage 1 - Expert Training:</strong> SafeMoE first uses unsafe data to train unsafe experts. [cite: 103] For efficiency, we use low-rank adapters to train different experts on each domain. [cite: 104]</li>
-            <li><strong>Stage 2 - Router Training:</strong> To leverage the expressive power of unsafe datasets to generate safe responses, our method next tunes the router parameters using a cross-entropy loss such that, for any given example, the model selects a subset, top-k, of the trained expert adapters to use. [cite: 124]</li>
+            <li><strong>Stage 1 - Expert Training:</strong> SafeMoE first uses unsafe data to train unsafe experts. For efficiency, we use low-rank adapters to train different experts on each domain.</li>
+            <li><strong>Stage 2 - Router Training:</strong> To leverage the expressive power of unsafe datasets to generate safe responses, our method next tunes the router parameters using a cross-entropy loss such that, for any given example, the model selects a subset, top-k, of the trained expert adapters to use. </li>
         </ul>
     </section>
 
     <section id="results">
         <h2>📊 Main Results</h2>
-        <p>Our models are all significantly safer than their baselines, with SafeMoE-L/XL also more informative[cite: 167]. Increasing the number of unsafe experts in the MoE architecture improves both safety and informativeness; [cite: 201] expanding from 4 to 18 unsafe experts increases the safety score from 86.5% to 90.8%[cite: 202].</p>
+        <p>Our models are all significantly safer than their baselines, with SafeMoE-L/XL also more informative. Increasing the number of unsafe experts in the MoE architecture improves both safety and informativeness; expanding from 4 to 18 unsafe experts increases the safety score from 86.5% to 90.8%.</p>
         
         <div class="figure-placeholder">
             [Insert Figure 3: Safe Samples per Domain Chart Here]
         </div>
-        <p class="caption">Figure 3: While scaling positively impacts both safety and informativeness, the router exhibits remarkable few-shot efficiency. Safety matches the RealSafe-R1 baseline with merely 20 samples per safe category while informativeness does so at 100 samples. [cite: 227]</p>
+        <p class="caption">Figure 3: While scaling positively impacts both safety and informativeness, the router exhibits remarkable few-shot efficiency. Safety matches the RealSafe-R1 baseline with merely 20 samples per safe category while informativeness does so at 100 samples. </p>
         
         <h3>Adversarial Robustness</h3>
-        <p>We further assess the adversarial resilience of SafeMoE-XL using PAIR with Claude-3.5-Sonnet as the red-teaming agent[cite: 240]. SafeMoE-XL achieves a near-optimal 1% ASR on HarmBench, a 41% absolute improvement over the baseline[cite: 242]. Furthermore, a >50% reduction in MJS demonstrates robust generalization against iterative refinement attacks[cite: 243].</p>
+        <p>We further assess the adversarial resilience of SafeMoE-XL using PAIR with Claude-3.5-Sonnet as the red-teaming agent. SafeMoE-XL achieves a near-optimal 1% ASR on HarmBench, a 41% absolute improvement over the baseline. Furthermore, a >50% reduction in MJS demonstrates robust generalization against iterative refinement attacks.</p>
     </section>
 
 </body>
