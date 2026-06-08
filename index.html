@@ -87,26 +87,15 @@
             opacity: 1;
         }
 
-        /* /* Individual Logo Sizes */
-        .logo-mila {
-            height: 20px;
-        }
-        .logo-chandar {
-            height: 150px;
-        }
-        .logo-microsoft {
-            height: 200px;
-        } */
-
         /* Individual Logo Sizes */
         .logos-container img.logo-mila {
-            height: 250px;
+            height: 300px;
         }
         .logos-container img.logo-chandar {
             height: 200px;
         }
         .logos-container img.logo-microsoft {
-            height: 150px;
+            height: 100px;
         }
         
         /* Links Styles */
@@ -476,7 +465,7 @@
 
     <section id="abstract">
         <h2>Abstract</h2>
-        <p>The prevailing paradigm in large language model (LLM) alignment operates via erasure, filtering unsafe data or training models to strictly refuse harmful prompts. While effective at reducing immediate toxicity, this approach fundamentally constricts the model's epistemological scope, resulting in over-cautious systems that output uninformative blanket refusals to sensitive yet benign queries. In this work, we challenge the orthodoxy that unsafe data must be discarded. We propose a dialectical approach to alignment, positing that unsafe data encodes rich, domain-specific knowledge critical for nuanced, safe, and informative generation. To operationalize this, we introduce SafeMoE, a Mixture-of-Experts (MoE) framework that isolates unsafe knowledge into domain-specific Low-Rank Adapters (LoRA experts) trained exclusively on harmful corpora. To synthesize safety from these unsafe primitives, we train a lightweight gating network using a minimal, highly curated set of safe-informative responses. During inference, this router dynamically orchestrates the unsafe experts, effectively steering the generation trajectory to harness their deep domain knowledge while strictly enforcing safety constraints. Extensive empirical evaluations across stringent safety benchmarks demonstrate that SafeMoE is not only safer, achieving over a 20% relative improvement in safe response rate (more than a 15% absolute gain), but also produces more informative responses when safety and harmfulness are of paramount concern. Furthermore, the routing mechanism exhibits strong zero-shot generalization to unseen domains and broader safety tasks without domain-specific supervision. Our findings suggest a paradigm shift in alignment: true safety requires not the masking of unsafe knowledge, but its controlled integration.</p>
+        <p>The prevailing paradigm in large language model (LLM) alignment operates via erasure, filtering unsafe data or training models to strictly refuse harmful prompts. While effective at reducing immediate toxicity, this approach fundamentally constricts the model's epistemological scope, resulting in over-cautious systems that output uninformative blanket refusals to sensitive yet benign queries. In this work, we challenge the orthodoxy that unsafe data must be discarded. We propose a dialectical approach to alignment, positing that unsafe data encodes rich, domain-specific knowledge critical for nuanced, safe, and informative generation. To operationalize this, we introduce SafeMoE, a Mixture-of-Experts (MoE) framework that isolates unsafe knowledge into domain-specific Low-Rank Adapters (LoRA experts) trained exclusively on harmful corpora. To synthesize safety from these unsafe primitives, we train a lightweight gating network using a minimal, highly curated set of safe-informative responses. During inference, this router dynamically orchestrates the unsafe experts, effectively steering the generation trajectory to harness their deep domain knowledge while strictly enforcing safety constraints. Extensive empirical evaluations across stringent safety benchmarks demonstrate that SafeMoE is not only safer, achieving over a <strong>20%</strong> relative improvement in safe response rate (more than a 15% absolute gain), but also produces more informative responses when safety and harmfulness are of paramount concern. Furthermore, the routing mechanism exhibits strong zero-shot generalization to unseen domains and broader safety tasks without domain-specific supervision. Our findings suggest a paradigm shift in alignment: true safety requires not the masking of unsafe knowledge, but its controlled integration.</p>
     </section>
 
     <section id="highlights">
@@ -485,8 +474,8 @@
             <ul>
                 <li><strong>A Dialectical Approach:</strong> We propose a dialectical approach to alignment, positing that unsafe data encodes rich, domain-specific knowledge critical for nuanced, safe, and informative generation.</li>
                 <li><strong>SafeMoE Framework:</strong> We introduce SafeMoE, a Mixture-of-Experts (MoE) framework that isolates unsafe knowledge into domain-specific Low-Rank Adapters (LoRA experts) trained exclusively on harmful corpora.</li>
-                <li><strong>Efficiency:</strong> To safely use this knowledge, we introduce a routing mechanism trained on a minimal dataset of safe responses (fewer than 800 samples across a limited set of topics which can potentially decreases to 100).</li>
-                <li><strong>Strong Results:</strong> Extensive empirical evaluations across stringent safety benchmarks demonstrate that SafeMoE is not only safer, achieving over a 20% relative improvement in safe response rate (more than a 15% absolute gain), but also produces more informative responses when safety and harmfulness are of paramount concern.</li>
+                <li><strong>Efficiency:</strong> To safely use this knowledge, we introduce a routing mechanism trained on a minimal dataset of safe responses (fewer than <strong>800</strong> samples across a limited set of topics which can potentially decreases to 100).</li>
+                <li><strong>Strong Results:</strong> Extensive empirical evaluations across stringent safety benchmarks demonstrate that SafeMoE is not only safer, achieving over a <strong>20%</strong> relative improvement in safe response rate (more than a <strong>15%</strong> absolute gain), but also produces more informative responses when safety and harmfulness are of paramount concern.</li>
             </ul>
         </div>
     </section>
@@ -552,7 +541,7 @@
     <section id="results">
         <h2>📊 Main Results: Safety Across Benchmarks</h2>
         <p>To assess generalization, we evaluated our method on several standard safety benchmarks: <span class="tag-benchmark">AdvBench</span>, <span class="tag-benchmark">HarmBench</span>, <span class="tag-benchmark">BeaverTails</span>, <span class="tag-benchmark">HarmfulQA</span>, and <span class="tag-benchmark">PKU-Safe</span>. We compared performance against the baselines using raw behavioral prompt sets, without any additional training.</p>
-        <p>Our models achieve high safety scores even without overlapping unsafe experts, consistently outperforming baselines like <span class="tag-method">SN-Tune</span> and <span class="tag-method">SafeLoRA</span> across all benchmarks. Notably, <span class="tag-method">SafeMoE-XL</span> reaches 97.2% safety on <span class="tag-benchmark">AdvBench</span> while remaining highly informative. While <span class="tag-method">Oyster-I</span> matches <span class="tag-method">SafeMoE-XL</span>'s performance, it requires costly reasoning and the scale of 14B parameters.</p>
+        <p>Our models achieve high safety scores even without overlapping unsafe experts, consistently outperforming baselines like <span class="tag-method">SN-Tune</span> and <span class="tag-method">SafeLoRA</span> across all benchmarks. Notably, <span class="tag-method">SafeMoE-XL</span> reaches <strong>97.2%</strong> safety on <span class="tag-benchmark">AdvBench</span> while remaining highly informative. While <span class="tag-method">Oyster-I</span> matches <span class="tag-method">SafeMoE-XL</span>'s performance, it requires costly reasoning and the scale of 14B parameters.</p>
         
         <h3 style="text-align: center; border: none; margin-top: 2.5rem; margin-bottom: 0.5rem; font-size: 1.2rem;">Safety Rate & Informativeness Comparison</h3>
         <div class="charts-wrapper">
@@ -688,7 +677,7 @@
                     </tbody>
                 </table>
             </div>
-            <p class="caption">Table 3: Benchmarking Safety and Informativeness Across Model Categories. We report the Safety Rate (Safe, %) and Informativeness Score (Info) across five diverse safety benchmarks.</p>
+            <p class="caption">Table 1: Benchmarking Safety and Informativeness Across Model Categories. We report the Safety Rate (Safe, %) and Informativeness Score (Info) across five diverse safety benchmarks.</p>
         </details>
     </section>
 
@@ -698,7 +687,7 @@
         <h3>Adversarial Robustness & Data Efficiency</h3>
         <div class="side-by-side-grid">
             <div>
-                <p>We assess the adversarial resilience of <span class="tag-method">SafeMoE-XL</span> using PAIR with Claude-3.5-Sonnet as the red-teaming agent. As shown below, SafeMoE achieves a near-optimal 1% Attack Success Rate (ASR) on <span class="tag-benchmark">HarmBench</span>, a 41% absolute improvement over the baseline, demonstrating robust generalization against iterative attacks.</p>
+                <p>We assess the adversarial resilience of <span class="tag-method">SafeMoE-XL</span> using PAIR with Claude-3.5-Sonnet as the red-teaming agent. As shown below, SafeMoE achieves a near-optimal 1% Attack Success Rate (ASR) on <span class="tag-benchmark">HarmBench</span>, a <strong>41%</strong> absolute improvement over the baseline, demonstrating robust generalization against iterative attacks.</p>
                 
                 <div class="table-container" style="margin-top: 1rem;">
                     <table>
@@ -739,7 +728,7 @@
                         </tbody>
                     </table>
                 </div>
-                <p class="caption">Table 4: Attack Success Rate (ASR) and Mean Judge Score (MJS) for adversarial robustness evaluation.</p>
+                <p class="caption">Table 2: Attack Success Rate (ASR) and Mean Judge Score (MJS) for adversarial robustness evaluation.</p>
             </div>
 
             <div>
