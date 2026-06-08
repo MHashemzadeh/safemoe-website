@@ -9,7 +9,7 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
             background-color: #fafafa;
@@ -24,22 +24,75 @@
             margin-bottom: 1rem;
             line-height: 1.2;
         }
-        .authors {
-            font-size: 1.2rem;
-            color: #444;
+        /* Authors & Affiliations Styles */
+        .authors-container {
+            margin-bottom: 2rem;
+        }
+        .authors-row {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #000;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
             margin-bottom: 0.5rem;
         }
-        .affiliations {
-            font-size: 1rem;
-            color: #666;
-            font-style: italic;
-            margin-bottom: 1.5rem;
+        .authors-row sup {
+            font-weight: normal;
+            margin-left: 0.1rem;
         }
+        .equal-supervision {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #000;
+            margin-bottom: 1rem;
+            margin-top: 0.5rem;
+        }
+        .affiliations-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem 4rem;
+            font-size: 1.1rem;
+            color: #000;
+            text-align: left;
+            flex-wrap: wrap;
+        }
+        .aff-col {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+        .aff-col sup {
+            margin-right: 0.2rem;
+        }
+        /* Logos Styles */
+        .logos-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            margin-top: 2.5rem;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .logos-container img {
+            max-height: 45px;
+            width: auto;
+            object-fit: contain;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+        .logos-container img:hover {
+            opacity: 1;
+        }
+        /* Links Styles */
         .links {
             display: flex;
             justify-content: center;
             gap: 1rem;
             margin-bottom: 2rem;
+            margin-top: 1.5rem;
         }
         .links a {
             display: inline-block;
@@ -54,6 +107,7 @@
         .links a:hover {
             background-color: #0366d6;
         }
+        /* Section Styles */
         section {
             background: white;
             padding: 2rem;
@@ -107,20 +161,285 @@
             margin-bottom: 1.5rem;
             font-style: italic;
         }
+        /* Highlight Tags */
+        .tag-method {
+            background-color: #f3e8ff;
+            color: #6b21a8;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+        .tag-benchmark {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+        /* Problem Section Styles */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        @media (max-width: 768px) {
+            .problem-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .problem-card {
+            background-color: #fff5f5;
+            border-left: 4px solid #d73a49;
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+        .problem-card h4 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: #d73a49;
+            font-size: 1.1rem;
+        }
+        /* Table Styles */
+        .table-container {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.75rem;
+        }
+        th, td {
+            padding: 0.3rem 0.4rem;
+            text-align: center;
+            border-bottom: 1px solid #eaeaea;
+        }
+        th {
+            font-weight: 600;
+            color: #222;
+            background-color: #f8f9fa;
+        }
+        thead tr:first-child th {
+            border-bottom: 1px solid #d1d5da;
+        }
+        thead tr:last-child th {
+            border-bottom: 2px solid #d1d5da;
+            font-size: 0.7rem;
+            color: #555;
+        }
+        td:first-child, th:first-child {
+            text-align: left;
+            font-weight: 600;
+            background-color: #fff;
+        }
+        tr:hover td {
+            background-color: #fdfdfd;
+        }
+        /* Chart & Collapsible Styles */
+        .charts-wrapper {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            margin: 2rem 0;
+            width: 100%;
+        }
+        @media (max-width: 1024px) {
+            .charts-wrapper {
+                flex-wrap: wrap;
+            }
+            .chart-container {
+                flex: 1 1 45%;
+            }
+        }
+        @media (max-width: 768px) {
+            .chart-container {
+                flex: 1 1 100%;
+            }
+        }
+        .chart-container {
+            position: relative;
+            height: 350px;
+            flex: 1 1 0;
+            min-width: 0;
+        }
+        details {
+            background-color: #fff;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        summary {
+            font-weight: 600;
+            color: #0366d6;
+            cursor: pointer;
+            outline: none;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        summary::before {
+            content: '►';
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            transition: transform 0.2s;
+        }
+        details[open] summary::before {
+            transform: rotate(90deg);
+        }
+        /* Demo Styles */
+        #demo {
+            background-color: #f8faff;
+            border: 2px solid #0366d6;
+            margin-top: 3rem;
+        }
+        .demo-input-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: inherit;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+        .run-btn {
+            align-self: flex-start;
+            padding: 0.75rem 1.5rem;
+            background-color: #0366d6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .run-btn:hover {
+            background-color: #024ea4;
+        }
+        .run-btn:disabled {
+            background-color: #a0c4ec;
+            cursor: not-allowed;
+        }
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .result-card {
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        .result-card.baseline {
+            background-color: #fff0f0;
+            border-left: 4px solid #d73a49;
+        }
+        .result-card.safemoe {
+            background-color: #f0fff4;
+            border-left: 4px solid #28a745;
+        }
+        .result-card h4 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        .baseline h4 { color: #d73a49; }
+        .safemoe h4 { color: #28a745; }
+        .loading-spinner {
+            font-style: italic;
+            color: #666;
+        }
+        /* Side-by-Side Layout for Additional Results */
+        .side-by-side-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            align-items: start;
+        }
+        @media (max-width: 768px) {
+            .side-by-side-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* Citation Styles */
+        .bibtex-container {
+            background-color: #f6f8fa;
+            border-radius: 6px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            border: 1px solid #e1e4e8;
+        }
+        .bibtex-container pre {
+            margin: 0;
+            font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+            font-size: 0.9rem;
+            color: #24292e;
+        }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
     <header>
         <h1>Dialectics of Alignment: Harnessing Unsafe Knowledge for Dynamic Safety Routing</h1>
-        <div class="authors">
-            Maryam Hashemzadeh, Jerry Huang, Minseon Kim, Marc-Alexandre Côté, Sarath Chandar
+        
+        <div class="authors-container">
+            <div class="authors-row">
+                <span>Maryam Hashemzadeh<sup>&alpha;,&beta;,&gamma;*</sup></span>
+                <span>Jerry Huang<sup>&alpha;,&beta;,&gamma;&dagger;</sup></span>
+                <span>Minseon Kim<sup>&delta;</sup></span>
+            </div>
+            <div class="authors-row">
+                <span>Marc-Alexandre Côté<sup>&beta;,&delta;&clubs;</sup></span>
+                <span>Sarath Chandar<sup>&alpha;,&beta;,&epsilon;,&zeta;&clubs;</sup></span>
+            </div>
+            <div class="equal-supervision">
+                &clubs; Equal supervision
+            </div>
+            <div class="affiliations-grid">
+                <div class="aff-col">
+                    <div><sup>&alpha;</sup>Chandar Research Lab</div>
+                    <div><sup>&delta;</sup>Microsoft Research</div>
+                </div>
+                <div class="aff-col">
+                    <div><sup>&beta;</sup>Mila &ndash; Quebec AI Institute</div>
+                    <div><sup>&epsilon;</sup>Polytechnique Montréal</div>
+                </div>
+                <div class="aff-col">
+                    <div><sup>&gamma;</sup>Université de Montréal</div>
+                    <div><sup>&zeta;</sup>Canada CIFAR AI Chair</div>
+                </div>
+            </div>
+            
+            <div class="logos-container">
+                <img src="Black_1200x500.png" alt="Chandar Research Lab">
+                <img src="milalogowebcoulrgb (1).png" alt="Mila AI Institute">
+                <img src="download.png" alt="Microsoft Research">
+            </div>
         </div>
-        <div class="affiliations">
-            Mila-Quebec AI Institute, Université de Montréal, Chandar Research Lab, Microsoft Research, Polytechnique Montréal
-        </div>
+
         <div class="links">
-            <a href="#">Paper PDF</a>
+            <a href="https://arxiv.org/abs/2606.00686" target="_blank">Paper PDF</a>
             <a href="#">Code Repository</a>
         </div>
     </header>
@@ -136,7 +455,7 @@
             <ul>
                 <li><strong>A Dialectical Approach:</strong> We propose a dialectical approach to alignment, positing that unsafe data encodes rich, domain-specific knowledge critical for nuanced, safe, and informative generation.</li>
                 <li><strong>SafeMoE Framework:</strong> We introduce SafeMoE, a Mixture-of-Experts (MoE) framework that isolates unsafe knowledge into domain-specific Low-Rank Adapters (LoRA experts) trained exclusively on harmful corpora.</li>
-                <li><strong>Efficiency:</strong> To safely use this knowledge, we introduce a routing mechanism trained on a highly curated, minimal dataset of safe responses (fewer than 800 samples across a limited set of topics which can potentially decreases to 100).</li>
+                <li><strong>Efficiency:</strong> To safely use this knowledge, we introduce a routing mechanism trained on a minimal dataset of safe responses (fewer than 800 samples across a limited set of topics which can potentially decreases to 100).</li>
                 <li><strong>Strong Results:</strong> Extensive empirical evaluations across stringent safety benchmarks demonstrate that SafeMoE is not only safer, achieving over a 20% relative improvement in safe response rate (more than a 15% absolute gain), but also produces more informative responses when safety and harmfulness are of paramount concern.</li>
             </ul>
         </div>
@@ -144,38 +463,461 @@
 
     <section id="problem">
         <h2>💡 The Problem: "Safety-by-Erasure"</h2>
-        <p>Recent efforts in LLM safety have focused on preventing the generation of harmful content. Yet, the prevailing alignment paradigm often over-corrects, causing models to strictly refuse prompts that exhibit even tangential hints of suspicious intent. Consequently, systems default to generic, blanket refusals, e.g., 'Sorry, I cannot help you.', particularly when navigating risky or complex queries.</p>
-        <p>While this "safety-by-erasure" approach reduces immediate toxicity, it severely degrades informativeness and user experience. Moreover, in contexts involving psychological distress (e.g., inquiries related to self-harm), blanket refusals can inadvertently drive well-intentioned users toward adversarial circumvention or migration to less-restrictive, unmoderated platforms, thereby exacerbating the likelihood of harmful outcomes.</p>
+        <p>Recent efforts in LLM safety have focused on preventing the generation of harmful content. However, the prevailing alignment paradigm often <strong>over-corrects</strong>, causing models to strictly refuse prompts that exhibit even tangential hints of suspicious intent.</p>
+
+        <div class="problem-grid">
+            <div class="problem-card">
+                <h4>🚫 The Symptom</h4>
+                <p>Systems default to generic, <strong>blanket refusals</strong> (e.g., <em>"Sorry, I cannot help you."</em>), particularly when navigating risky, complex, or sensitive queries.</p>
+            </div>
+            <div class="problem-card">
+                <h4>⚠️ The Consequence</h4>
+                <p>While reducing immediate toxicity, this severely degrades <strong>informativeness and user experience</strong>, restricting the model's epistemological scope.</p>
+            </div>
+        </div>
+
+        <p style="margin-top: 1.5rem;"><strong>The Hidden Danger:</strong> In contexts involving psychological distress (e.g., inquiries related to self-harm), uninformative blanket refusals can inadvertently drive well-intentioned users toward adversarial circumvention or migration to less-restrictive, unmoderated platforms, thereby exacerbating the likelihood of harmful outcomes.</p>
     </section>
 
     <section id="approach">
         <h2>🚀 Our Approach: The SafeMoE Framework</h2>
-        <p>By isolating unsafe knowledge into specialized components, we hypothesize that its informative value can be harnessed while steering models toward safe outcomes using a minimal set of aligned examples[cite: 37]. We introduce SafeMoE, a Mixture-of-Experts (MoE) framework that utilizes domain-specific Low-Rank Adapters (LoRAs) to "bottle" unsafe knowledge[cite: 38]. Uniquely, these experts encapsulate rich, domain-specific primitives that, despite their unsafe nature, are critical for detailed generation[cite: 39].</p>
+        <p>By isolating unsafe knowledge into specialized components, we hypothesize that its informative value can be harnessed while steering models toward safe outcomes using a minimal set of aligned examples. We introduce SafeMoE, a Mixture-of-Experts (MoE) framework that utilizes domain-specific Low-Rank Adapters (LoRAs) to "bottle" unsafe knowledge. Uniquely, these experts encapsulate rich, domain-specific primitives that, despite their unsafe nature, are critical for detailed generation.</p>
         
         <div class="figure-placeholder">
-            [Insert Figure 2: Stages of SafeMoE Here]
+            method.pdf
         </div>
-        <p class="caption">Figure 2: (1) Unsafe experts are trained using a large set of unsafe response data that can be split into domains. [cite: 128] (2) Experts are used to train a router with a smaller set of safe response data. [cite: 129] In the second stage, the experts are frozen, while only the router is trainable. [cite: 130]</p>
+        <p class="caption">Figure 2: (1) Unsafe experts are trained using a large set of unsafe response data that can be split into domains. (2) Experts are used to train a router with a smaller set of safe response data. In the second stage, the experts are frozen, while only the router is trainable.</p>
 
         <h3>Training Stages</h3>
         <ul>
             <li><strong>Stage 1 - Expert Training:</strong> SafeMoE first uses unsafe data to train unsafe experts. For efficiency, we use low-rank adapters to train different experts on each domain.</li>
-            <li><strong>Stage 2 - Router Training:</strong> To leverage the expressive power of unsafe datasets to generate safe responses, our method next tunes the router parameters using a cross-entropy loss such that, for any given example, the model selects a subset, top-k, of the trained expert adapters to use. </li>
+            <li><strong>Stage 2 - Router Training:</strong> To leverage the expressive power of unsafe datasets to generate safe responses, our method next tunes the router parameters using a cross-entropy loss such that, for any given example, the model selects a subset, top-k, of the trained expert adapters to use.</li>
         </ul>
     </section>
 
-    <section id="results">
-        <h2>📊 Main Results</h2>
-        <p>Our models are all significantly safer than their baselines, with SafeMoE-L/XL also more informative. Increasing the number of unsafe experts in the MoE architecture improves both safety and informativeness; expanding from 4 to 18 unsafe experts increases the safety score from 86.5% to 90.8%.</p>
+    <section id="demo">
+        <h2>Live Demonstration: The SafeMoE Difference</h2>
+        <p>Experience the dialectical approach in action. Enter a complex, borderline, or sensitive query below. Our Gemini-powered simulator will dynamically generate two responses: a standard "safety-by-erasure" refusal, and an informative, contextually-aware response using the SafeMoE philosophy.</p>
         
-        <div class="figure-placeholder">
-            [Insert Figure 3: Safe Samples per Domain Chart Here]
+        <div class="demo-input-container">
+            <textarea id="demoPrompt" rows="3" placeholder="e.g., 'Can you explain how lockpicking works?' or 'What are the chemical components of common explosives?'"></textarea>
+            <button id="runDemoBtn" class="run-btn" onclick="runSimulation()">✨ Simulate Safety Routing ✨</button>
+            <div id="demoLoading" class="loading-spinner" style="display: none;">Routing through experts... generating responses...</div>
         </div>
-        <p class="caption">Figure 3: While scaling positively impacts both safety and informativeness, the router exhibits remarkable few-shot efficiency. Safety matches the RealSafe-R1 baseline with merely 20 samples per safe category while informativeness does so at 100 samples. </p>
-        
-        <h3>Adversarial Robustness</h3>
-        <p>We further assess the adversarial resilience of SafeMoE-XL using PAIR with Claude-3.5-Sonnet as the red-teaming agent. SafeMoE-XL achieves a near-optimal 1% ASR on HarmBench, a 41% absolute improvement over the baseline. Furthermore, a >50% reduction in MJS demonstrates robust generalization against iterative refinement attacks.</p>
+
+        <div id="demoResults" class="results-grid" style="display: none;">
+            <div class="result-card baseline">
+                <h4>Standard Model (Erasure)</h4>
+                <p id="baselineOutput"></p>
+            </div>
+            <div class="result-card safemoe">
+                <h4>SafeMoE (Informative)</h4>
+                <p id="safemoeOutput"></p>
+            </div>
+        </div>
     </section>
 
+    <section id="results">
+        <h2>📊 Main Results: Safety Across Benchmarks</h2>
+        <p>To assess generalization, we evaluated our method on several standard safety benchmarks: <span class="tag-benchmark">AdvBench</span>, <span class="tag-benchmark">HarmBench</span>, <span class="tag-benchmark">BeaverTails</span>, <span class="tag-benchmark">HarmfulQA</span>, and <span class="tag-benchmark">PKU-Safe</span>. We compared performance against the baselines using raw behavioral prompt sets, without any additional training.</p>
+        <p>Our models achieve high safety scores even without overlapping unsafe experts, consistently outperforming baselines like <span class="tag-method">SN-Tune</span> and <span class="tag-method">SafeLoRA</span> across all benchmarks. Notably, <span class="tag-method">SafeMoE-XL</span> reaches 97.2% safety on <span class="tag-benchmark">AdvBench</span> while remaining highly informative. While <span class="tag-method">Oyster-I</span> matches <span class="tag-method">SafeMoE-XL</span>'s performance, it requires costly reasoning and the scale of 14B parameters.</p>
+        
+        <h3 style="text-align: center; border: none; margin-top: 2.5rem; margin-bottom: 0.5rem; font-size: 1.2rem;">Safety Rate & Informativeness Comparison</h3>
+        <div class="charts-wrapper">
+            <div class="chart-container">
+                <canvas id="mistralSafetyChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="qwenSafetyChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="mistralInfoChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="qwenInfoChart"></canvas>
+            </div>
+        </div>
+
+        <details style="margin-top: 2rem;">
+            <summary>View Full Detailed Results Table</summary>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2">Method</th>
+                            <th colspan="2">AdvBench</th>
+                            <th colspan="2">HarmBench</th>
+                            <th colspan="2">Beaver Tails</th>
+                            <th colspan="2">HarmfulQA</th>
+                            <th colspan="2">PKU-Safe</th>
+                        </tr>
+                        <tr>
+                            <th>Safe (%)</th>
+                            <th>Info</th>
+                            <th>Safe (%)</th>
+                            <th>Info</th>
+                            <th>Safe (%)</th>
+                            <th>Info</th>
+                            <th>Safe (%)</th>
+                            <th>Info</th>
+                            <th>Safe (%)</th>
+                            <th>Info</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mistral-7B</td>
+                            <td>11.9</td><td>4.6</td>
+                            <td>14.3</td><td>3.5</td>
+                            <td>31.4</td><td>3.9</td>
+                            <td>40.1</td><td>4.0</td>
+                            <td>17.3</td><td>5.6</td>
+                        </tr>
+                        <tr style="background-color: #f1f8ff; font-weight: 500;">
+                            <td>SafeMoE-XL (Ours)</td>
+                            <td>97.2</td><td>8.2</td>
+                            <td>82.5</td><td>7.5</td>
+                            <td>87.2</td><td>6.4</td>
+                            <td>98.1</td><td>7.1</td>
+                            <td>90.8</td><td>8.1</td>
+                        </tr>
+                        <tr>
+                            <td>Qwen-3B</td>
+                            <td>31.1</td><td>4.4</td>
+                            <td>27.5</td><td>4.1</td>
+                            <td>34.0</td><td>6.2</td>
+                            <td>32.8</td><td>6.2</td>
+                            <td>11.6</td><td>6.9</td>
+                        </tr>
+                        <tr style="background-color: #f1f8ff; font-weight: 500;">
+                            <td>SafeMoE-Qwen (Ours)</td>
+                            <td>73.2</td><td>7.8</td>
+                            <td>71.9</td><td>7.5</td>
+                            <td>63.4</td><td>6.9</td>
+                            <td>69.9</td><td>6.9</td>
+                            <td>62.3</td><td>7.4</td>
+                        </tr>
+                        <tr>
+                            <td>SafeLORA</td>
+                            <td>25.1</td><td>5.9</td>
+                            <td>20.7</td><td>6.3</td>
+                            <td>15.7</td><td>4.5</td>
+                            <td>23.9</td><td>5.2</td>
+                            <td>10.0</td><td>3.8</td>
+                        </tr>
+                        <tr>
+                            <td>SN-Tune</td>
+                            <td>55.2</td><td>6.9</td>
+                            <td>49.6</td><td>6.1</td>
+                            <td>51.6</td><td>5.2</td>
+                            <td>44.6</td><td>4.4</td>
+                            <td>39.8</td><td>4.7</td>
+                        </tr>
+                        <tr>
+                            <td>Oyster-I 14B</td>
+                            <td>80.5</td><td>6.9</td>
+                            <td>75.4</td><td>7.1</td>
+                            <td>81.7</td><td>7.6</td>
+                            <td>82.3</td><td>7.3</td>
+                            <td>90.6</td><td>8.1</td>
+                        </tr>
+                        <tr>
+                            <td>Zephyr</td>
+                            <td>44.5</td><td>7.2</td>
+                            <td>52.4</td><td>6.3</td>
+                            <td>39.8</td><td>5.9</td>
+                            <td>45.9</td><td>6.7</td>
+                            <td>54.1</td><td>7.8</td>
+                        </tr>
+                        <tr>
+                            <td>RealSafe-R1</td>
+                            <td>60.8</td><td>5.8</td>
+                            <td>59.3</td><td>6.7</td>
+                            <td>68.8</td><td>5.6</td>
+                            <td>72.2</td><td>6.1</td>
+                            <td>74.6</td><td>7.8</td>
+                        </tr>
+                        <tr>
+                            <td>Mistral-SFT</td>
+                            <td>27.7</td><td>6.7</td>
+                            <td>30.3</td><td>6.6</td>
+                            <td>22.4</td><td>5.9</td>
+                            <td>19.1</td><td>5.8</td>
+                            <td>25.8</td><td>7.1</td>
+                        </tr>
+                        <tr>
+                            <td>Deepseek-R1-Qwen</td>
+                            <td>48.9</td><td>6.7</td>
+                            <td>49.1</td><td>6.5</td>
+                            <td>53.6</td><td>6.8</td>
+                            <td>48.2</td><td>7.0</td>
+                            <td>51.8</td><td>7.3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="caption">Table 3: Benchmarking Safety and Informativeness Across Model Categories. We report the Safety Rate (Safe, %) and Informativeness Score (Info) across five diverse safety benchmarks.</p>
+        </details>
+    </section>
+
+    <section id="additional-evaluations">
+        <h2>📈 Additional Evaluations</h2>
+        
+        <h3>Adversarial Robustness & Data Efficiency</h3>
+        <div class="side-by-side-grid">
+            <div>
+                <p>We assess the adversarial resilience of <span class="tag-method">SafeMoE-XL</span> using PAIR with Claude-3.5-Sonnet as the red-teaming agent. As shown below, SafeMoE achieves a near-optimal 1% Attack Success Rate (ASR) on <span class="tag-benchmark">HarmBench</span>, a 41% absolute improvement over the baseline, demonstrating robust generalization against iterative attacks.</p>
+                
+                <div class="table-container" style="margin-top: 1rem;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th rowspan="2">Model</th>
+                                <th colspan="2">HarmBench</th>
+                                <th colspan="2">PKU-Safe</th>
+                            </tr>
+                            <tr>
+                                <th>ASR (↓)</th>
+                                <th>MJS (↓)</th>
+                                <th>ASR (↓)</th>
+                                <th>MJS (↓)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mistral-SFT</td>
+                                <td>42%</td><td>3.15</td>
+                                <td>62%</td><td>5.60</td>
+                            </tr>
+                            <tr style="background-color: #f1f8ff; font-weight: 500;">
+                                <td>SafeMoE-XL (Ours)</td>
+                                <td>1%</td><td>1.10</td>
+                                <td>25%</td><td>2.78</td>
+                            </tr>
+                            <tr>
+                                <td>Qwen3-4B-Instruct</td>
+                                <td>24%</td><td>2.70</td>
+                                <td>48%</td><td>3.60</td>
+                            </tr>
+                            <tr style="background-color: #f1f8ff; font-weight: 500;">
+                                <td>SafeMoE-Qwen (Ours)</td>
+                                <td>20%</td><td>2.10</td>
+                                <td>32%</td><td>3.10</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="caption">Table 4: Attack Success Rate (ASR) and Mean Judge Score (MJS) for adversarial robustness evaluation.</p>
+            </div>
+
+            <div>
+                <p>Ablating the volume of safe training data reveals remarkable few-shot efficiency. SafeMoE matches the <span class="tag-method">RealSafe-R1</span> safety baseline with just 20 safe samples per domain, and matches its informativeness with 100 samples.</p>
+                <div class="figure-placeholder" style="height: 250px; margin-top: 1.5rem;">
+                    safesamplesplot.pdf
+                </div>
+                <p class="caption">Figure 3: SafeMoE exhibits strong few-shot efficiency as the number of safe samples per domain scales.</p>
+            </div>
+        </div>
+
+        <h3>Over-Refusal Analysis</h3>
+        <p>Evaluated on <span class="tag-benchmark">OrBench</span>, SafeMoE maintains high safety on toxic prompts while effectively minimizing over-refusals on hard, benign prompts.</p>
+        
+        <div class="figure-placeholder" style="height: 350px;">
+             radar_all.pdf
+        </div>
+        <p class="caption">Figure 4: SafeMoE models maintain high performance on hard categories and improve safety on toxic categories without collapsing into blanket refusals.</p>
+    </section>
+
+    <section id="citation">
+        <h2>📝 Citation</h2>
+        <p>If you find our work useful, please consider citing our paper:</p>
+        <div class="bibtex-container">
+<pre><code>@article{hashemzadeh2026dialectics,
+  title={Dialectics of Alignment: Harnessing Unsafe Knowledge for Dynamic Safety Routing},
+  author={Hashemzadeh, Maryam and Huang, Jerry and Kim, Minseon and C{\^o}t{\'e}, Marc-Alexandre and Chandar, Sarath},
+  journal={arXiv preprint arXiv:2606.00686},
+  year={2026}
+}</code></pre>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const chartLabels = ['AdvBench', 'HarmBench', 'Beaver Tails', 'HarmfulQA', 'PKU-Safe'];
+            
+            // Reusable configuration factory
+            const createConfig = (title, maxScale, yAxisLabel, datasets) => ({
+                type: 'bar',
+                data: { labels: chartLabels, datasets: datasets },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 12 } } },
+                        tooltip: { mode: 'index', intersect: false },
+                        title: {
+                            display: true,
+                            text: title,
+                            font: { size: 14, family: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' },
+                            padding: { bottom: 15 }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: {
+                                autoSkip: false, /* Forces all labels to display */
+                                maxRotation: 45, /* Angles the labels so they fit */
+                                minRotation: 45,
+                                font: { size: 10 } /* Slightly smaller font for tighter spaces */
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            max: maxScale,
+                            title: { display: true, text: yAxisLabel }
+                        }
+                    }
+                }
+            });
+
+            // 1. Mistral Safety Chart
+            new Chart(document.getElementById('mistralSafetyChart').getContext('2d'), createConfig(
+                'Mistral-7B Safety', 100, 'Safety Rate (%)', [
+                {
+                    label: 'SafeMoE-XL (Ours)',
+                    data: [97.2, 82.5, 87.2, 98.1, 90.8],
+                    backgroundColor: 'rgba(111, 66, 193, 0.85)', borderColor: 'rgba(111, 66, 193, 1)', borderWidth: 1, borderRadius: 4
+                },
+                {
+                    label: 'Mistral-7B (Base)',
+                    data: [11.9, 14.3, 31.4, 40.1, 17.3],
+                    backgroundColor: 'rgba(106, 115, 125, 0.5)', borderColor: 'rgba(106, 115, 125, 1)', borderWidth: 1, borderRadius: 4
+                }
+            ]));
+
+            // 2. Qwen Safety Chart
+            new Chart(document.getElementById('qwenSafetyChart').getContext('2d'), createConfig(
+                'Qwen-3B Safety', 100, 'Safety Rate (%)', [
+                {
+                    label: 'SafeMoE-Qwen (Ours)',
+                    data: [73.2, 71.9, 63.4, 69.9, 62.3],
+                    backgroundColor: 'rgba(111, 66, 193, 0.85)', borderColor: 'rgba(111, 66, 193, 1)', borderWidth: 1, borderRadius: 4
+                },
+                {
+                    label: 'Qwen-3B (Base)',
+                    data: [31.1, 27.5, 34.0, 32.8, 11.6],
+                    backgroundColor: 'rgba(106, 115, 125, 0.5)', borderColor: 'rgba(106, 115, 125, 1)', borderWidth: 1, borderRadius: 4
+                }
+            ]));
+
+            // 3. Mistral Info Chart
+            new Chart(document.getElementById('mistralInfoChart').getContext('2d'), createConfig(
+                'Mistral-7B Info', 10, 'Informativeness (1-10)', [
+                {
+                    label: 'SafeMoE-XL (Ours)',
+                    data: [8.2, 7.5, 6.4, 7.1, 8.1],
+                    backgroundColor: 'rgba(255, 152, 0, 0.85)', borderColor: 'rgba(255, 152, 0, 1)', borderWidth: 1, borderRadius: 4
+                },
+                {
+                    label: 'Mistral-7B (Base)',
+                    data: [4.6, 3.5, 3.9, 4.0, 5.6],
+                    backgroundColor: 'rgba(76, 175, 80, 0.8)', borderColor: 'rgba(76, 175, 80, 1)', borderWidth: 1, borderRadius: 4
+                }
+            ]));
+
+            // 4. Qwen Info Chart
+            new Chart(document.getElementById('qwenInfoChart').getContext('2d'), createConfig(
+                'Qwen-3B Info', 10, 'Informativeness (1-10)', [
+                {
+                    label: 'SafeMoE-Qwen (Ours)',
+                    data: [7.8, 7.5, 6.9, 6.9, 7.4],
+                    backgroundColor: 'rgba(255, 152, 0, 0.85)', borderColor: 'rgba(255, 152, 0, 1)', borderWidth: 1, borderRadius: 4
+                },
+                {
+                    label: 'Qwen-3B (Base)',
+                    data: [4.4, 4.1, 6.2, 6.2, 6.9],
+                    backgroundColor: 'rgba(76, 175, 80, 0.8)', borderColor: 'rgba(76, 175, 80, 1)', borderWidth: 1, borderRadius: 4
+                }
+            ]));
+        });
+
+        // Gemini API Demo Logic
+        async function fetchWithRetry(url, options, retries = 5) {
+            const delays = [1000, 2000, 4000, 8000, 16000];
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    return await response.json();
+                } catch (e) {
+                    if (i === retries - 1) throw e;
+                    await new Promise(res => setTimeout(res, delays[i]));
+                }
+            }
+        }
+
+        async function runSimulation() {
+            const promptInput = document.getElementById('demoPrompt').value.trim();
+            if (!promptInput) {
+                alert("Please enter a prompt to simulate.");
+                return;
+            }
+
+            const btn = document.getElementById('runDemoBtn');
+            const loading = document.getElementById('demoLoading');
+            const results = document.getElementById('demoResults');
+            const baselineOut = document.getElementById('baselineOutput');
+            const safemoeOut = document.getElementById('safemoeOutput');
+
+            // UI Loading State
+            btn.disabled = true;
+            loading.style.display = 'block';
+            results.style.display = 'none';
+
+            const apiKey = ""; // API Key handled by runtime environment
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            
+            const systemInstruction = "You are an AI simulator demonstrating the difference between standard safety erasure and the SafeMoE dialectical approach described in our paper. The user will provide a sensitive prompt. You must output JSON.";
+            const userQuery = `Analyze this prompt: "${promptInput}"\n\nGenerate two responses in JSON format:\n1. "baseline": A generic, overly cautious blanket refusal typical of standard alignment (e.g., "I cannot help with that", "As an AI, I cannot...").\n2. "safemoe": A safe but highly informative response that leverages domain knowledge to educate or explain concepts safely WITHOUT providing actionable harm, reflecting the SafeMoE dialectical approach.`;
+
+            const payload = {
+                systemInstruction: { parts: [{ text: systemInstruction }] },
+                contents: [{ parts: [{ text: userQuery }] }],
+                generationConfig: {
+                    responseMimeType: "application/json",
+                    responseSchema: {
+                        type: "OBJECT",
+                        properties: {
+                            baseline: { type: "STRING" },
+                            safemoe: { type: "STRING" }
+                        }
+                    }
+                }
+            };
+
+            try {
+                const data = await fetchWithRetry(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const textResult = data.candidates?.[0]?.content?.parts?.[0]?.text;
+                if (textResult) {
+                    const parsed = JSON.parse(textResult);
+                    baselineOut.textContent = parsed.baseline || "Error generating baseline.";
+                    safemoeOut.textContent = parsed.safemoe || "Error generating SafeMoE response.";
+                    results.style.display = 'grid';
+                }
+            } catch (error) {
+                baselineOut.textContent = "Failed to connect to simulation server.";
+                safemoeOut.textContent = "Please try again later.";
+                results.style.display = 'grid';
+            } finally {
+                btn.disabled = false;
+                loading.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
