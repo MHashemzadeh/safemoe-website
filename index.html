@@ -77,7 +77,7 @@
             flex-wrap: wrap;
         }
         .logos-container img {
-            max-height: 45px;
+            max-height: 100px;
             width: auto;
             object-fit: contain;
             opacity: 0.85;
@@ -100,13 +100,13 @@
 
         /* Individual Logo Sizes */
         .logos-container img.logo-mila {
-            height: 150px;
+            height: 300px;
         }
         .logos-container img.logo-chandar {
-            height: 150px;
+            height: 300px;
         }
         .logos-container img.logo-microsoft {
-            height: 150px;
+            height: 300px;
         }
         
         /* Links Styles */
@@ -506,10 +506,10 @@
         <h2>🚀 Our Approach: The SafeMoE Framework</h2>
         <p>By isolating unsafe knowledge into specialized components, we hypothesize that its informative value can be harnessed while steering models toward safe outcomes using a minimal set of aligned examples. We introduce SafeMoE, a Mixture-of-Experts (MoE) framework that utilizes domain-specific Low-Rank Adapters (LoRAs) to "bottle" unsafe knowledge. Uniquely, these experts encapsulate rich, domain-specific primitives that, despite their unsafe nature, are critical for detailed generation.</p>
         
-        <div class="figure-placeholder">
+        <!-- <div class="figure-placeholder">
             method.pdf
-        </div>
-        <img src="method_page-0001.jpg" alt="Figure 1: (1) Unsafe experts are trained using a large set of unsafe response data that can be split into domains. (2) Experts are used to train a router with a smaller set of safe response data. In the second stage, the experts are frozen, while only the router is trainable." style="width: 100%; height: auto; border-radius: 8px; margin: 1.5rem 0;">
+        </div> -->
+        <img src="method_page-0001.jpg" alt="Figure 1: (1) Unsafe experts are trained using a large set of unsafe response data that can be split into domains. (2) Experts are used to train a router with a smaller set of safe response data. In the second stage, the experts are frozen, while only the router is trainable." style="width: 70%; height: auto; border-radius: 8px; margin: 1.5rem 0;">
         <!-- <p class="caption">Figure 2: (1) Unsafe experts are trained using a large set of unsafe response data that can be split into domains. (2) Experts are used to train a router with a smaller set of safe response data. In the second stage, the experts are frozen, while only the router is trainable.</p> -->
 
         <h3>Training Stages</h3>
@@ -736,7 +736,7 @@
 
             <div>
                 <p>Ablating the volume of safe training data reveals remarkable few-shot efficiency. SafeMoE matches the <span class="tag-method">RealSafe-R1</span> safety baseline with just 20 safe samples per domain, and matches its informativeness with 100 samples.</p>
-                <img src="safesamplesplot_page-0001.jpg" alt="Figure 2: SafeMoE exhibits strong few-shot efficiency as the number of safe samples per domain scales." style="width: 45%; height: auto; border-radius: 8px; margin: 1.5rem 0;">
+                <img src="safesamplesplot_page-0001.jpg" alt="Figure 2: SafeMoE exhibits strong few-shot efficiency as the number of safe samples per domain scales." style="width: 100%; height: auto; border-radius: 8px; margin: 1.5rem 0;">
                 <!-- <div class="figure-placeholder" style="height: 250px; margin-top: 1.5rem;">
                     safesamplesplot.pdf
                 </div>
